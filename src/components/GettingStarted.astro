@@ -1,0 +1,117 @@
+---
+const beginnerSteps = [
+  'Read the <code>CONTRIBUTING.md</code> in any project',
+  'Follow the README to set up locally',
+  'Pick a <code>good-first-issue</code> — scoped for beginners',
+  'Ask questions in the issue thread or Discord',
+  'Submit your PR. We review within 48 hours.',
+];
+---
+
+<section class="section section-alt" id="start">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-eyebrow">06 — Begin</span>
+      <h2 class="section-title">Getting Started</h2>
+      <p class="section-desc">New to open source? Start here. Experienced? Dive right in.</p>
+    </div>
+    <div class="start-grid">
+      <div class="start-card" data-reveal>
+        <h3>New to Open Source?</h3>
+        <ol>
+          {beginnerSteps.map((step) => <li set:html={step} />)}
+        </ol>
+      </div>
+      <div class="start-card" data-reveal>
+        <h3>Been Here Before?</h3>
+        <p>
+          If you've contributed to open source, skip the training wheels. Browse any open issue labeled
+          <code>intermediate</code> or <code>advanced</code>, comment to claim it, and start building.
+        </p>
+        <p>We trust you to read the codebase, follow conventions, and open clean PRs.</p>
+        <a href="https://github.com/voss-labs" class="link-arrow" target="_blank" rel="noopener">
+          View all issues →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .start-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .start-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .start-card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .start-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .start-card ol {
+    list-style: none;
+    counter-reset: item;
+  }
+
+  .start-card ol li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 14px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .start-card ol li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-light);
+  }
+
+  .start-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: gap 0.2s var(--transition);
+  }
+
+  .link-arrow:hover {
+    gap: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .start-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

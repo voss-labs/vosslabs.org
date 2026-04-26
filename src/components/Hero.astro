@@ -1,0 +1,182 @@
+---
+// Hero with asymmetric layout, gradient title, code block teaser.
+---
+
+<header class="hero" id="hero">
+  <div class="container">
+    <div class="hero-eyebrow" data-reveal>
+      <span class="pulse"></span>
+      Vidyalankar Institute of Technology, Mumbai
+    </div>
+    <h1 class="hero-title" data-reveal>
+      <span class="line">Open Source</span>
+      <span class="line">Software Labs</span>
+    </h1>
+    <p class="hero-desc" data-reveal>
+      We identify the most broken, manual, and painful systems at Vidyalankar — and we fix them with software.
+      Every project is open source, publicly maintained, and built to be used by real students every day.
+    </p>
+    <div class="hero-actions" data-reveal>
+      <a href="#contribute" class="btn btn-primary">
+        <span>Start Contributing</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+      <a href="https://github.com/voss-labs" class="btn btn-ghost" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+        Browse Repos
+      </a>
+    </div>
+    <div class="hero-code" data-reveal>
+      <div class="code-header">
+        <span class="code-title">// CONTRIBUTING.md</span>
+      </div>
+      <pre class="code-body"><code><span class="token-comment"># How to join VOSS</span>
+<span class="token-keyword">if</span> (you.shipCode()) {'{'}
+  you.areIn = <span class="token-bool">true</span>;
+  you.role = <span class="token-string">"contributor"</span>;
+{'}'}
+<span class="token-comment">// No forms. No interviews. Just commits.</span></code></pre>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    padding: 180px 0 100px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -3.5px;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+
+  .hero-title .line {
+    display: block;
+  }
+
+  .hero-title .line:last-child {
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .hero-desc {
+    margin: 0 0 36px 0;
+    max-width: 520px;
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: flex-start;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+  }
+
+  .hero-code {
+    max-width: 680px;
+    margin: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    text-align: left;
+    transition:
+      background-color 0.35s var(--transition),
+      border-color 0.35s var(--transition);
+  }
+
+  .code-header {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .code-title {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  .code-body {
+    padding: 18px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .code-body :global(code) {
+    background: none;
+    padding: 0;
+    font-family: inherit;
+    border: none;
+    color: var(--text);
+  }
+
+  .token-comment { color: var(--text-muted); }
+  .token-keyword { color: #c084fc; }
+  .token-bool    { color: #f472b6; }
+  .token-string  { color: #4ade80; }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 140px 0 80px;
+    }
+    .hero-title {
+      letter-spacing: -2px;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn {
+      width: auto;
+    }
+  }
+</style>

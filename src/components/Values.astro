@@ -1,0 +1,97 @@
+---
+const values = [
+  {
+    num: '01',
+    title: 'Ship over talk',
+    body: 'Working code beats perfect plans. Merge early, iterate often. A deployed prototype is worth a thousand meetings.',
+  },
+  {
+    num: '02',
+    title: 'Open by default',
+    body: 'Every line of code is public. Every decision is documented. No private repos, no closed meetings, no hidden agendas.',
+  },
+  {
+    num: '03',
+    title: 'Merit over seniority',
+    body: "A first-year who ships outranks a final-year who doesn't. Year of study and CGPA are irrelevant here. Only output matters.",
+  },
+  {
+    num: '04',
+    title: 'Problems first',
+    body: 'We build what Vidyalankar actually needs, not what looks good on a poster. Real pain points. Real solutions. Real impact.',
+  },
+];
+---
+
+<section class="section" id="values">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-eyebrow">05 — Principles</span>
+      <h2 class="section-title">Values</h2>
+      <p class="section-desc">The non-negotiables that guide every decision we make.</p>
+    </div>
+    <div class="values">
+      {
+        values.map((value) => (
+          <div class="value" data-reveal>
+            <div class="value-num">{value.num}</div>
+            <h3>{value.title}</h3>
+            <p>{value.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .value {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    transition:
+      background-color 0.3s var(--transition),
+      border-color 0.3s var(--transition);
+  }
+
+  .value:hover {
+    border-color: var(--border-hover);
+  }
+
+  .value-num {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: -1.5px;
+    opacity: 0.5;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .value h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .value p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .values {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

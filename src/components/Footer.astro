@@ -1,0 +1,142 @@
+---
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#contribute', label: 'Contribute' },
+  { href: '#structure', label: 'Structure' },
+  { href: '#values', label: 'Values' },
+];
+
+const connectLinks = [
+  { href: 'https://github.com/voss-labs', label: 'GitHub', external: true },
+  { href: '#', label: 'Discord', external: false },
+  { href: 'mailto:hello@vosslabs.org', label: 'Email', external: false },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark">◈</span>
+        <span class="footer-name">VOSS</span>
+        <p class="footer-tag">Vidyalankar Open Source Software Labs</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          {
+            connectLinks.map((link) =>
+              link.external ? (
+                <a href={link.href} target="_blank" rel="noopener">
+                  {link.label}
+                </a>
+              ) : (
+                <a href={link.href}>{link.label}</a>
+              ),
+            )
+          }
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Founded April 2026 · Vidyalankar Institute of Technology, Mumbai · Built in Public</p>
+      <p>All projects released under MIT License unless otherwise specified.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    z-index: 1;
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+    transition:
+      background-color 0.35s var(--transition),
+      border-color 0.35s var(--transition);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .logo-mark {
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+
+  .footer-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: block;
+    margin: 8px 0 4px;
+  }
+
+  .footer-tag {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 64px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+    transition: color 0.2s var(--transition);
+  }
+
+  .footer-col a:hover {
+    color: var(--text);
+  }
+
+  .footer-bottom {
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      flex-direction: column;
+    }
+    .footer-links {
+      gap: 40px;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

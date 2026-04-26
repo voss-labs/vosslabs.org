@@ -1,0 +1,98 @@
+---
+const items = [
+  { title: 'MIT License', body: 'Everything we ship is permissively licensed. No exceptions.' },
+  { title: 'Clear README', body: 'What it does, how to run it, and where to find help.' },
+  { title: 'CONTRIBUTING.md', body: 'Setup instructions, branch naming, and commit conventions.' },
+  {
+    title: 'Labeled Issues',
+    body: '<code>good-first-issue</code>, <code>intermediate</code>, <code>advanced</code>, <code>bug</code>, <code>feature</code>, <code>docs</code>',
+  },
+  {
+    title: 'Branch Protection',
+    body: 'All changes go through PRs with at least one review before merging to <code>main</code>.',
+  },
+];
+---
+
+<section class="section" id="structure">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-eyebrow">03 — Standards</span>
+      <h2 class="section-title">Project Structure</h2>
+      <p class="section-desc">Every VOSS project follows the same baseline. Consistency scales.</p>
+    </div>
+    <div class="standards" data-reveal>
+      {
+        items.map((item) => (
+          <div class="standard-item">
+            <div class="standard-check">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M3 8l3.5 3.5L13 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="standard-text">
+              <h4>{item.title}</h4>
+              <p set:html={item.body} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .standards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 860px;
+  }
+
+  .standard-item {
+    display: flex;
+    gap: 18px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .standard-item:first-child {
+    padding-top: 0;
+  }
+  .standard-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .standard-check {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .standard-text h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .standard-text p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+</style>

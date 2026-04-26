@@ -1,0 +1,90 @@
+---
+const stats = [
+  { count: 12, suffix: '', label: 'Repositories' },
+  { count: 48, suffix: '', label: 'Contributors' },
+  { count: 156, suffix: '', label: 'Merged PRs' },
+  { count: 100, suffix: '%', label: 'Open Source' },
+];
+---
+
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      {
+        stats.map((stat) => (
+          <div class="stat" data-reveal>
+            <span class="stat-num" data-count={stat.count} data-suffix={stat.suffix}>
+              0
+            </span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats {
+    position: relative;
+    z-index: 1;
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--stats-bg);
+    transition:
+      background-color 0.35s var(--transition),
+      border-color 0.35s var(--transition);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .stat {
+    text-align: left;
+    position: relative;
+  }
+
+  .stat::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  .stat-num {
+    display: block;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .stat-num {
+      letter-spacing: -2px;
+    }
+  }
+</style>
