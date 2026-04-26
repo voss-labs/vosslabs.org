@@ -31,9 +31,9 @@
   --hero-code-shadow: none;
   --code-bg: #f5f4ef;
   --grain-opacity: 0;
-  /* VS Code Light theme syntax */
+  /* VS Code Light theme syntax — keyword pulls from logo gradient */
   --token-comment: #008000;
-  --token-keyword: #af00db;
+  --token-keyword: #7c3aed;
   --token-bool: #0070c1;
   --token-string: #a31515;
   --token-function: #795e26;
@@ -64,9 +64,9 @@
   --code-header-bg: rgba(255, 255, 255, 0.02);
   --code-bg: #161616;
   --grain-opacity: 0.025;
-  /* VS Code Dark+ theme syntax */
+  /* VS Code Dark+ theme syntax — keyword pulls from logo gradient */
   --token-comment: #6a9955;
-  --token-keyword: #c586c0;
+  --token-keyword: #a78bfa;
   --token-bool: #569cd6;
   --token-string: #ce9178;
   --token-function: #dcdcaa;
@@ -258,6 +258,27 @@ code {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
+}
+
+/* Skip to content (visible only when focused) */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+  transition: transform 0.2s var(--transition);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Reveal-on-scroll */

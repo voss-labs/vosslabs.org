@@ -75,38 +75,6 @@ function initRevealObserver(): void {
   });
 }
 
-function initStatsCounter(): void {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target as HTMLElement;
-        const target = Number.parseInt(el.dataset.count ?? '0', 10);
-        const suffix = el.dataset.suffix ?? '';
-        const duration = 1500;
-        const start = performance.now();
-
-        const update = (now: number): void => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.floor(eased * target) + suffix;
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            el.textContent = target + suffix;
-          }
-        };
-
-        requestAnimationFrame(update);
-        observer.unobserve(el);
-      });
-    },
-    { threshold: 0.5 },
-  );
-
-  document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => observer.observe(el));
-}
-
 function initNavScroll(): void {
   const nav = document.getElementById('nav');
   if (!nav) return;
@@ -140,8 +108,17 @@ function initActiveNav(): void {
   if (sections.length === 0) return;
 
   const setActive = (id: string | null): void => {
-    navLinks.forEach((link) => link.classList.remove('is-active'));
-    if (id) targets.get(id)?.classList.add('is-active');
+    navLinks.forEach((link) => {
+      link.classList.remove('is-active');
+      link.removeAttribute('aria-current');
+    });
+    if (id) {
+      const link = targets.get(id);
+      if (link) {
+        link.classList.add('is-active');
+        link.setAttribute('aria-current', 'location');
+      }
+    }
   };
 
   const observer = new IntersectionObserver(
@@ -153,7 +130,7 @@ function initActiveNav(): void {
         setActive(visible[0]!.target.id);
       }
     },
-    { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+    { rootMargin: '-20% 0px -45% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
   );
 
   sections.forEach((section) => observer.observe(section));
@@ -178,7 +155,6 @@ function init(): void {
   initTheme();
   initMobileMenu();
   initRevealObserver();
-  initStatsCounter();
   initNavScroll();
   initActiveNav();
   initSmoothScroll();
