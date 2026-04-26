@@ -30,13 +30,18 @@ const values = [
       <h2 class="section-title">Four non-negotiables.</h2>
       <p class="section-desc">The rules that guide every decision we make.</p>
     </div>
+
     <div class="values">
       {
         values.map((value) => (
           <div class="value" data-reveal>
-            <span class="value-num">{value.num}</span>
-            <h3>{value.title}</h3>
-            <p>{value.body}</p>
+            <div class="value-num-wrap">
+              <span class="value-num">{value.num}</span>
+            </div>
+            <div class="value-body">
+              <h3>{value.title}</h3>
+              <p>{value.body}</p>
+            </div>
           </div>
         ))
       }
@@ -46,71 +51,58 @@ const values = [
 
 <style>
   .values {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
   .value {
-    padding: 40px 32px 40px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 160px) 1fr;
+    gap: 40px;
+    padding: 28px 0;
     border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+    align-items: baseline;
     transition: border-color 0.35s var(--transition);
   }
 
-  .value:nth-child(2n) {
-    border-right: none;
-    padding-right: 0;
-    padding-left: 32px;
-  }
-
-  .value:nth-last-child(-n+2) {
-    border-bottom: none;
+  .value-num-wrap {
+    padding-top: 0;
   }
 
   .value-num {
-    display: block;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
     font-weight: 500;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 32px;
+    color: var(--brand);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    display: block;
   }
 
-  .value h3 {
-    font-size: 1.5rem;
+  .value-body h3 {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 600;
     letter-spacing: -0.025em;
-    margin-bottom: 10px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    color: var(--text);
+    max-width: 720px;
   }
 
-  .value p {
+  .value-body p {
     color: var(--text-dim);
-    font-size: 0.98rem;
-    line-height: 1.55;
-    max-width: 480px;
+    font-size: 1rem;
+    line-height: 1.45;
+    max-width: 640px;
   }
 
   @media (max-width: 768px) {
-    .values {
-      grid-template-columns: 1fr;
-    }
     .value {
-      padding: 32px 0;
-      border-right: none;
-    }
-    .value:nth-child(2n) {
-      padding-left: 0;
-    }
-    .value:nth-last-child(-n+2) {
-      border-bottom: 1px solid var(--border);
-    }
-    .value:last-child {
-      border-bottom: none;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 40px 0;
     }
   }
 </style>

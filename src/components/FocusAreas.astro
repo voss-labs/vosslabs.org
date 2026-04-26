@@ -2,18 +2,21 @@
 const cards = [
   {
     num: '01',
-    title: 'Campus Infrastructure',
-    body: 'Attendance, notices, resources — the everyday machinery that keeps a college running. We make it work better.',
+    tag: 'Infrastructure',
+    title: 'Campus tools that just work.',
+    body: 'Attendance, notices, resources — the everyday machinery that keeps a college running. We make it work better, faster, and less painful for the students who use it every day.',
   },
   {
     num: '02',
-    title: 'Department Portals',
-    body: 'Dashboards and portals that departments actually want to log into. Fast, clean, built with real user feedback.',
+    tag: 'Portals',
+    title: 'Dashboards departments want to use.',
+    body: 'Internal portals that load fast, look clean, and ship features users actually requested. Built with the people who will use them, not for a brochure.',
   },
   {
     num: '03',
-    title: 'Internal Tooling',
-    body: 'CLI tools, GitHub bots, CI pipelines, and docs generators that make the lab itself more productive.',
+    tag: 'Tooling',
+    title: 'Tools to build the tools.',
+    body: 'CLI utilities, GitHub bots, CI pipelines, and documentation generators that make the lab itself more productive. Meta-infrastructure, public from day one.',
   },
 ];
 ---
@@ -28,13 +31,18 @@ const cards = [
         Every project is open source, publicly maintained on GitHub, and built for daily use.
       </p>
     </div>
-    <div class="cards">
+    <div class="rows">
       {
         cards.map((card) => (
-          <article class="card" data-reveal>
-            <span class="card-num">{card.num}</span>
-            <h3>{card.title}</h3>
-            <p>{card.body}</p>
+          <article class="row card" data-reveal>
+            <div class="row-meta">
+              <span class="row-num">{card.num}</span>
+              <span class="row-tag">{card.tag}</span>
+            </div>
+            <div class="row-body">
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </div>
           </article>
         ))
       }
@@ -43,58 +51,68 @@ const cards = [
 </section>
 
 <style>
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+  .rows {
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
-  .card {
-    background: transparent;
-    border-right: 1px solid var(--border);
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 220px) 1fr;
+    gap: 40px;
+    padding: 28px 0;
     border-bottom: 1px solid var(--border);
-    padding: 40px 32px;
     transition: border-color 0.35s var(--transition);
+    align-items: start;
   }
 
-  .card:last-child {
-    border-right: none;
+  .row-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 6px;
   }
 
-  .card-num {
-    display: block;
+  .row-num {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-size: 0.74rem;
+    color: var(--brand);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 32px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
   }
 
-  .card h3 {
-    font-size: 1.5rem;
+  .row-tag {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .row-body h3 {
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
     font-weight: 600;
     letter-spacing: -0.025em;
-    margin-bottom: 12px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    max-width: 640px;
   }
 
-  .card p {
+  .row-body p {
     color: var(--text-dim);
-    font-size: 0.95rem;
-    line-height: 1.55;
-    letter-spacing: -0.005em;
+    font-size: 0.96rem;
+    line-height: 1.5;
+    max-width: 680px;
   }
 
   @media (max-width: 768px) {
-    .cards {
+    .row {
       grid-template-columns: 1fr;
-    }
-    .card {
-      border-right: none;
-      padding: 32px 0;
+      gap: 16px;
+      padding: 36px 0;
     }
   }
 </style>

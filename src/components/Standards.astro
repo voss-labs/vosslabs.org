@@ -18,12 +18,17 @@ const items = [
   {
     num: '04',
     title: 'Labeled Issues',
-    body: '<code>good-first-issue</code>, <code>intermediate</code>, <code>advanced</code>, <code>bug</code>, <code>feature</code>, <code>docs</code> — every issue is sorted.',
+    body: '<code>good-first-issue</code>, <code>intermediate</code>, <code>advanced</code>, <code>bug</code>, <code>feature</code>, <code>docs</code>.',
   },
   {
     num: '05',
     title: 'Branch Protection',
     body: 'All changes to <code>main</code> go through pull requests with at least one review.',
+  },
+  {
+    num: '06',
+    title: 'Public Discussion',
+    body: 'Design decisions happen in issues and PRs. Nothing important happens off-platform.',
   },
 ];
 ---
@@ -33,17 +38,18 @@ const items = [
     <div class="section-header" data-reveal>
       <span class="section-eyebrow">03 — Standards</span>
       <h2 class="section-title">Every project follows the same baseline.</h2>
-      <p class="section-desc">Consistency scales. New contributors find the same shape in every repo.</p>
+      <p class="section-desc">Consistency scales. Newcomers find the same shape in every repo.</p>
     </div>
-    <div class="standards" data-reveal>
+
+    <div class="standards-grid" data-reveal>
       {
         items.map((item) => (
-          <div class="standard-item">
-            <span class="standard-num">{item.num}</span>
-            <div class="standard-text">
+          <div class="standard">
+            <div class="standard-head">
+              <span class="standard-num">{item.num}</span>
               <h4>{item.title}</h4>
-              <p set:html={item.body} />
             </div>
+            <p set:html={item.body} />
           </div>
         ))
       }
@@ -52,52 +58,53 @@ const items = [
 </section>
 
 <style>
-  .standards {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .standards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
-  .standard-item {
-    display: flex;
-    gap: 32px;
-    padding: 28px 0;
+  .standard {
+    padding: 24px 24px;
+    border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
+  .standard-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
   .standard-num {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-size: 0.74rem;
+    color: var(--brand);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    min-width: 56px;
-    line-height: 1.6;
-    flex-shrink: 0;
-    padding-top: 4px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
   }
 
-  .standard-text h4 {
-    font-size: 1.15rem;
+  .standard h4 {
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    margin-bottom: 6px;
+    color: var(--text);
   }
 
-  .standard-text p {
+  .standard p {
     color: var(--text-dim);
     font-size: 0.95rem;
     line-height: 1.55;
-    max-width: 640px;
   }
 
   @media (max-width: 768px) {
-    .standard-item {
-      gap: 16px;
+    .standards-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

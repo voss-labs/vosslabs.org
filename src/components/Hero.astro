@@ -1,53 +1,76 @@
 ---
-// Hero — type-led, asymmetric.
+const meta = [
+  { label: 'Founded', value: 'April 2026' },
+  { label: 'Location', value: 'Mumbai, IN' },
+  { label: 'License', value: 'MIT' },
+  { label: 'Status', value: 'Open Source' },
+];
 ---
 
 <header class="hero" id="hero">
   <div class="container">
-    <div class="hero-eyebrow" data-reveal>
-      <span class="hero-num">VOSS / 2026</span>
-      <span class="hero-divider"></span>
-      <span>Vidyalankar Institute of Technology, Mumbai</span>
-    </div>
-    <h1 class="hero-title" data-reveal>
-      <span class="line">Open Source</span>
-      <span class="line">Software Labs</span>
-    </h1>
-    <p class="hero-desc" data-reveal>
-      A student-run open-source lab at Vidyalankar Institute of Technology, Mumbai.
-      We build real digital infrastructure for the college — collaboratively, transparently, and in public.
-    </p>
-    <div class="hero-actions" data-reveal>
-      <a href="#contribute" class="btn btn-primary">
-        <span>Start Contributing</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M3 8h10M9 4l4 4-4 4"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-      </a>
-      <a href="https://github.com/voss-labs" class="btn btn-ghost" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-          ></path>
-        </svg>
-        Browse Repos
-      </a>
-    </div>
-    <div class="hero-code" data-reveal>
-      <div class="code-header">
-        <span class="code-title">// CONTRIBUTING.md</span>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow" data-reveal>
+          <span class="hero-num">VOSS / 2026</span>
+          <span class="hero-divider"></span>
+          <span>Vidyalankar Institute of Technology, Mumbai</span>
+        </div>
+        <h1 class="hero-title" data-reveal>
+          <span class="line">Open Source</span>
+          <span class="line">Software Labs</span>
+        </h1>
+        <p class="hero-desc" data-reveal>
+          A student-run open-source lab at Vidyalankar Institute of Technology, Mumbai.
+          We build real digital infrastructure for the college — collaboratively, transparently, and in public.
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a href="#contribute" class="btn btn-primary">
+            <span>Start Contributing</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/voss-labs" class="btn btn-ghost" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              ></path>
+            </svg>
+            Browse Repos
+          </a>
+        </div>
       </div>
-      <pre class="code-body"><code><span class="token-comment"># How to join VOSS</span>
-<span class="token-keyword">if</span> (you.shipCode()) {'{'}
-  you.areIn = <span class="token-bool">true</span>;
-  you.role = <span class="token-string">"contributor"</span>;
+
+      <div class="hero-right" data-reveal>
+        <div class="hero-code">
+          <div class="code-header">
+            <span class="code-title">// CONTRIBUTING.md</span>
+          </div>
+          <pre class="code-body"><code><span class="token-comment">// How to join VOSS</span>
+<span class="token-keyword">if</span> (<span class="token-var">you</span>.<span class="token-fn">shipCode</span>()) {'{'}
+  <span class="token-var">you</span>.<span class="token-prop">areIn</span> = <span class="token-bool">true</span>;
+  <span class="token-var">you</span>.<span class="token-prop">role</span> = <span class="token-string">"contributor"</span>;
 {'}'}
 <span class="token-comment">// No forms. No interviews. Just commits.</span></code></pre>
+        </div>
+
+        <dl class="hero-meta">
+          {
+            meta.map((item) => (
+              <div class="meta-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
     </div>
   </div>
 </header>
@@ -56,8 +79,25 @@
   .hero {
     position: relative;
     z-index: 1;
+    min-height: 100vh;
+    padding: 120px 0 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero > .container {
+    width: 100%;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-left {
     text-align: left;
-    padding: 200px 0 120px;
   }
 
   .hero-eyebrow {
@@ -85,12 +125,11 @@
   }
 
   .hero-title {
-    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-size: clamp(2.6rem, 6.5vw, 5.4rem);
     font-weight: 600;
-    line-height: 0.94;
-    letter-spacing: -0.055em;
-    margin-bottom: 48px;
-    max-width: 1100px;
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+    margin-bottom: 36px;
   }
 
   .hero-title .line {
@@ -108,9 +147,9 @@
   }
 
   .hero-desc {
-    margin: 0 0 48px 0;
-    max-width: 560px;
-    font-size: 1.18rem;
+    margin: 0 0 40px 0;
+    max-width: 480px;
+    font-size: 1.1rem;
     color: var(--text-dim);
     line-height: 1.55;
     letter-spacing: -0.01em;
@@ -119,14 +158,16 @@
   .hero-actions {
     display: flex;
     gap: 12px;
-    justify-content: flex-start;
-    margin-bottom: 88px;
     flex-wrap: wrap;
   }
 
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
   .hero-code {
-    max-width: 680px;
-    margin: 0;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
@@ -166,14 +207,67 @@
     color: var(--text);
   }
 
-  .token-comment { color: var(--token-comment); }
-  .token-keyword { color: var(--token-keyword); font-weight: 600; }
-  .token-bool    { color: var(--token-bool); }
-  .token-string  { color: var(--token-string); }
+  .token-comment  { color: var(--token-comment); font-style: italic; }
+  .token-keyword  { color: var(--token-keyword); }
+  .token-bool     { color: var(--token-bool); }
+  .token-string   { color: var(--token-string); }
+  .token-fn       { color: var(--token-function); }
+  .token-var      { color: var(--token-variable); }
+  .token-prop     { color: var(--token-property); }
 
-  @media (max-width: 768px) {
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .meta-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .meta-item:nth-child(odd) {
+    padding-right: 16px;
+    border-right: 1px solid var(--border);
+  }
+
+  .meta-item:nth-child(even) {
+    padding-left: 16px;
+  }
+
+  .meta-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .meta-item dt {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+
+  .meta-item dd {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 900px) {
     .hero {
-      padding: 140px 0 80px;
+      min-height: auto;
+      padding: 120px 0 64px;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 56px;
+      align-items: start;
     }
     .hero-actions {
       flex-direction: column;

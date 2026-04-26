@@ -1,29 +1,44 @@
 ---
-const roles = [
+const tiers = [
   {
-    num: '01',
-    badge: 'Founder',
-    body: 'Sets direction. Represents the lab externally. One person, not a committee.',
+    label: 'Direction',
+    roles: [
+      {
+        num: '01',
+        name: 'Founder',
+        body: 'Sets direction. Represents the lab externally. One person, not a committee.',
+      },
+    ],
   },
   {
-    num: '02',
-    badge: 'Core Maintainers',
-    body: 'Trusted contributors with merge access. Run day-to-day operations.',
+    label: 'Operations',
+    roles: [
+      {
+        num: '02',
+        name: 'Core Maintainers',
+        body: 'Trusted contributors with merge access. Run day-to-day operations.',
+      },
+      {
+        num: '03',
+        name: 'Maintainers',
+        body: 'Experienced contributors who review PRs and mentor newcomers.',
+      },
+    ],
   },
   {
-    num: '03',
-    badge: 'Maintainers',
-    body: 'Experienced contributors who review PRs and mentor newcomers.',
-  },
-  {
-    num: '04',
-    badge: 'Contributors',
-    body: 'Anyone who has shipped at least one merged contribution.',
-  },
-  {
-    num: '05',
-    badge: 'Community',
-    body: 'All Vidyalankar students interested in open source. The widest circle.',
+    label: 'The Lab',
+    roles: [
+      {
+        num: '04',
+        name: 'Contributors',
+        body: 'Anyone who has shipped at least one merged contribution.',
+      },
+      {
+        num: '05',
+        name: 'Community',
+        body: 'All Vidyalankar students interested in open source. The widest circle.',
+      },
+    ],
   },
 ];
 ---
@@ -37,14 +52,24 @@ const roles = [
         No elected positions. No president, no secretary, no treasurer. Your commits are your credentials.
       </p>
     </div>
-    <div class="roles" data-reveal>
+
+    <div class="tiers">
       {
-        roles.map((role) => (
-          <div class="role">
-            <span class="role-num">{role.num}</span>
-            <div class="role-content">
-              <h4>{role.badge}</h4>
-              <p>{role.body}</p>
+        tiers.map((tier) => (
+          <div class="tier" data-reveal>
+            <div class="tier-label">
+              <span>{tier.label}</span>
+            </div>
+            <div class={`tier-roles cols-${tier.roles.length}`}>
+              {tier.roles.map((role) => (
+                <div class="role">
+                  <div class="role-head">
+                    <span class="role-num">{role.num}</span>
+                    <h4>{role.name}</h4>
+                  </div>
+                  <p>{role.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         ))
@@ -54,52 +79,81 @@ const roles = [
 </section>
 
 <style>
-  .roles {
+  .tiers {
     display: flex;
     flex-direction: column;
-    gap: 0;
     border-top: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
-  .role {
-    display: flex;
-    gap: 32px;
-    padding: 28px 0;
+  .tier {
+    display: grid;
+    grid-template-columns: minmax(0, 180px) 1fr;
+    gap: 40px;
+    padding: 24px 0;
     border-bottom: 1px solid var(--border);
+    align-items: start;
     transition: border-color 0.35s var(--transition);
+  }
+
+  .tier-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding-top: 6px;
+  }
+
+  .tier-roles {
+    display: grid;
+    gap: 24px;
+  }
+
+  .tier-roles.cols-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-roles.cols-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .role-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
   }
 
   .role-num {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-size: 0.7rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    min-width: 56px;
-    line-height: 1.6;
-    flex-shrink: 0;
-    padding-top: 4px;
+    letter-spacing: 0.14em;
   }
 
-  .role-content h4 {
-    font-size: 1.15rem;
+  .role h4 {
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    margin-bottom: 6px;
+    color: var(--text);
   }
 
-  .role-content p {
+  .role p {
     color: var(--text-dim);
     font-size: 0.95rem;
     line-height: 1.55;
-    max-width: 640px;
+    max-width: 480px;
   }
 
   @media (max-width: 768px) {
-    .role {
+    .tier {
+      grid-template-columns: 1fr;
       gap: 16px;
+    }
+    .tier-roles.cols-2 {
+      grid-template-columns: 1fr;
     }
   }
 </style>

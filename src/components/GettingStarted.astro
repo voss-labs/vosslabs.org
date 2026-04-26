@@ -13,18 +13,25 @@ const beginnerSteps = [
     <div class="section-header" data-reveal>
       <span class="section-eyebrow">06 — Begin</span>
       <h2 class="section-title">Two paths in.</h2>
+      <p class="section-desc">Pick the one that matches where you are. Both end at the same place.</p>
     </div>
-    <div class="start-grid">
-      <div class="start-card" data-reveal>
-        <span class="start-num">A</span>
-        <h3>New to open source</h3>
+
+    <div class="paths">
+      <div class="path" data-reveal>
+        <header class="path-head">
+          <span class="path-tag">Path A</span>
+          <h3>New to open source</h3>
+        </header>
         <ol>
           {beginnerSteps.map((step) => <li set:html={step} />)}
         </ol>
       </div>
-      <div class="start-card" data-reveal>
-        <span class="start-num">B</span>
-        <h3>Done this before</h3>
+
+      <div class="path" data-reveal>
+        <header class="path-head">
+          <span class="path-tag">Path B</span>
+          <h3>Done this before</h3>
+        </header>
         <p>
           Skip the training wheels. Browse any open issue labeled <code>intermediate</code> or
           <code>advanced</code>, comment to claim it, and start building.
@@ -39,50 +46,49 @@ const beginnerSteps = [
 </section>
 
 <style>
-  .start-grid {
+  .paths {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
     border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
-  .start-card {
-    padding: 48px 48px 48px 0;
+  .path {
+    padding: 36px 36px;
     border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     transition: border-color 0.35s var(--transition);
   }
 
-  .start-card:last-child {
-    border-right: none;
-    padding-left: 48px;
-    padding-right: 0;
+  .path-head {
+    margin-bottom: 24px;
   }
 
-  .start-num {
-    display: block;
+  .path-tag {
+    display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    color: var(--text-muted);
+    color: var(--brand);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
   }
 
-  .start-card h3 {
+  .path h3 {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: -0.025em;
-    margin-bottom: 28px;
+    color: var(--text);
   }
 
-  .start-card ol {
+  .path ol {
     list-style: none;
     counter-reset: item;
   }
 
-  .start-card ol li {
+  .path ol li {
     counter-increment: item;
     position: relative;
     padding-left: 36px;
@@ -92,7 +98,7 @@ const beginnerSteps = [
     line-height: 1.55;
   }
 
-  .start-card ol li::before {
+  .path ol li::before {
     content: counter(item, decimal-leading-zero);
     position: absolute;
     left: 0;
@@ -103,7 +109,7 @@ const beginnerSteps = [
     top: 4px;
   }
 
-  .start-card p {
+  .path p {
     color: var(--text-dim);
     font-size: 1rem;
     line-height: 1.55;
@@ -128,17 +134,12 @@ const beginnerSteps = [
   }
 
   @media (max-width: 768px) {
-    .start-grid {
+    .paths {
       grid-template-columns: 1fr;
     }
-    .start-card {
+    .path {
       padding: 32px 0;
       border-right: none;
-      border-bottom: 1px solid var(--border);
-    }
-    .start-card:last-child {
-      padding-left: 0;
-      border-bottom: none;
     }
   }
 </style>

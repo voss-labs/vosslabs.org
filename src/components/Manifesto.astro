@@ -4,11 +4,18 @@
 
 <section class="manifesto" id="manifesto">
   <div class="container">
-    <p class="manifesto-text" data-reveal>
-      <span class="line">Not a club.</span>
-      <span class="line">Not a committee.</span>
-      <span class="line dim">A lab where students build things that actually get used<span class="dot">.</span></span>
-    </p>
+    <div class="manifesto-grid">
+      <span class="manifesto-label" data-reveal>The Manifesto</span>
+      <p class="manifesto-text" data-reveal>
+        <span class="line">Not a club.</span>
+        <span class="line">Not a committee.</span>
+        <span class="line dim">A lab where students build things that actually get used<span class="dot">.</span></span>
+      </p>
+      <div class="manifesto-attr" data-reveal>
+        <span class="attr-rule"></span>
+        <span class="attr-text">VOSS · Founded April 2026 · Mumbai, IN</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -16,9 +23,33 @@
   .manifesto {
     position: relative;
     z-index: 1;
-    padding: 96px 0 120px;
+    min-height: 100vh;
+    padding: 96px 0;
     border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
     transition: border-color 0.35s var(--transition);
+  }
+
+  .manifesto > .container {
+    width: 100%;
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 160px) 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .manifesto-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--brand);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding-top: 14px;
   }
 
   .manifesto-text {
@@ -43,9 +74,39 @@
     color: var(--brand);
   }
 
+  .manifesto-attr {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .attr-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--text-muted);
+  }
+
+  .attr-text {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
   @media (max-width: 768px) {
     .manifesto {
+      min-height: auto;
       padding: 64px 0 80px;
+    }
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .manifesto-attr {
+      grid-column: 1;
     }
   }
 </style>
