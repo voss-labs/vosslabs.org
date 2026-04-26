@@ -1,0 +1,51 @@
+---
+// Big-type manifesto pull-quote between Hero and Focus Areas.
+---
+
+<section class="manifesto" id="manifesto">
+  <div class="container">
+    <p class="manifesto-text" data-reveal>
+      <span class="line">Not a club.</span>
+      <span class="line">Not a committee.</span>
+      <span class="line dim">A lab where students build things that actually get used<span class="dot">.</span></span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    position: relative;
+    z-index: 1;
+    padding: 96px 0 120px;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
+  }
+
+  .manifesto-text {
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--text);
+    max-width: 1100px;
+  }
+
+  .manifesto-text .line {
+    display: block;
+  }
+
+  .manifesto-text .dim {
+    color: var(--text-muted);
+    margin-top: 0.25em;
+  }
+
+  .manifesto-text .dot {
+    color: var(--brand);
+  }
+
+  @media (max-width: 768px) {
+    .manifesto {
+      padding: 64px 0 80px;
+    }
+  }
+</style>

@@ -7,8 +7,8 @@ function applyTheme(theme: Theme): void {
   const moonIcon = document.getElementById('moonIcon');
   const sunIcon = document.getElementById('sunIcon');
 
-  if (theme === 'light') {
-    root.setAttribute('data-theme', 'light');
+  if (theme === 'dark') {
+    root.setAttribute('data-theme', 'dark');
     if (moonIcon) moonIcon.style.display = 'none';
     if (sunIcon) sunIcon.style.display = 'block';
   } else {
@@ -22,14 +22,14 @@ function initTheme(): void {
   const saved = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
   if (saved === 'light' || saved === 'dark') {
     applyTheme(saved);
-  } else if (window.matchMedia?.('(prefers-color-scheme: light)').matches) {
-    applyTheme('light');
+  } else if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
   }
 
   const toggle = document.getElementById('themeToggle');
   toggle?.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const next: Theme = isLight ? 'dark' : 'light';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next: Theme = isDark ? 'light' : 'dark';
     applyTheme(next);
     localStorage.setItem(THEME_STORAGE_KEY, next);
   });
@@ -123,6 +123,42 @@ function initNavScroll(): void {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+function initActiveNav(): void {
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link[href^="#"]');
+  if (navLinks.length === 0) return;
+
+  const targets = new Map<string, HTMLAnchorElement>();
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href && href.length > 1) targets.set(href.slice(1), link);
+  });
+
+  const sections = Array.from(targets.keys())
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (sections.length === 0) return;
+
+  const setActive = (id: string | null): void => {
+    navLinks.forEach((link) => link.classList.remove('is-active'));
+    if (id) targets.get(id)?.classList.add('is-active');
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length > 0) {
+        setActive(visible[0]!.target.id);
+      }
+    },
+    { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 function initSmoothScroll(): void {
   document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
@@ -144,6 +180,7 @@ function init(): void {
   initRevealObserver();
   initStatsCounter();
   initNavScroll();
+  initActiveNav();
   initSmoothScroll();
 }
 

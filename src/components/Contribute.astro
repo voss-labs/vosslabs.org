@@ -2,33 +2,35 @@
 const steps = [
   {
     num: '01',
-    title: 'Browse Issues',
-    body: 'Explore open issues across our repositories. Filter by <code>good-first-issue</code> if you\'re new to open source.',
+    title: 'Browse open issues',
+    body: 'Look across our repositories. Filter by <code>good-first-issue</code> if you\'re new.',
   },
   {
     num: '02',
-    title: 'Fork & Build',
-    body: 'Fork the repo, set it up locally using the README, and build your solution in a feature branch.',
+    title: 'Pick something that fits',
+    body: 'Match it to your skill level. <code>good-first-issue</code> for beginners, <code>intermediate</code> or <code>advanced</code> for the rest.',
   },
   {
     num: '03',
-    title: 'Submit a PR',
-    body: 'Open a pull request with a clear description. Our maintainers review within 48 hours.',
+    title: 'Fork, build, submit a PR',
+    body: 'Set up locally, build your solution in a feature branch, open a pull request with a clear description.',
   },
   {
     num: '04',
-    title: "You're In",
-    body: "Once merged, you're an official contributor. Your GitHub history is your membership card.",
+    title: "Get reviewed and merged",
+    body: "We review within 48 hours. Once merged, you're a contributor. Your GitHub history is your membership card.",
   },
 ];
 ---
 
-<section class="section section-alt" id="contribute">
+<section class="section" id="contribute">
   <div class="container">
     <div class="section-header" data-reveal>
       <span class="section-eyebrow">02 — Join</span>
-      <h2 class="section-title">How To Contribute</h2>
-      <p class="section-desc">No applications. No interviews. No forms. You contribute, you're in.</p>
+      <h2 class="section-title">No applications. No interviews.</h2>
+      <p class="section-desc">
+        No forms, no committees, no gatekeepers. You contribute, you're in.
+      </p>
     </div>
     <div class="steps">
       {
@@ -44,7 +46,7 @@ const steps = [
       }
     </div>
     <div class="contribute-cta" data-reveal>
-      <p class="big-quote">"Your GitHub contribution history is your membership card."</p>
+      <p class="big-quote">Your GitHub contribution history is your membership card.</p>
       <a href="https://github.com/voss-labs" class="btn btn-primary btn-large" target="_blank" rel="noopener">
         <span>Explore Repositories</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -65,69 +67,67 @@ const steps = [
     display: flex;
     flex-direction: column;
     gap: 0;
-    max-width: 100%;
-    margin: 0 0 56px 0;
+    margin: 0 0 80px 0;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
   }
 
   .step {
     display: flex;
-    gap: 28px;
-    padding: 32px 0;
+    gap: 32px;
+    padding: 36px 0;
     border-bottom: 1px solid var(--border);
     align-items: flex-start;
     transition: border-color 0.35s var(--transition);
   }
 
-  .step:first-child {
-    padding-top: 0;
-  }
-  .step:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
   .step-num {
     font-family: var(--font-mono);
-    font-size: 1.6rem;
-    font-weight: 800;
+    font-size: 0.78rem;
+    font-weight: 500;
     color: var(--text-muted);
-    letter-spacing: -1px;
-    padding: 0;
-    background: none;
-    border: none;
-    opacity: 0.35;
-    min-width: 44px;
-    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    min-width: 56px;
+    line-height: 1.6;
     flex-shrink: 0;
+    padding-top: 4px;
   }
 
   .step-content h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 8px;
+    color: var(--text);
   }
 
   .step-content p {
     color: var(--text-dim);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 640px;
   }
 
   .contribute-cta {
+    padding-top: 0;
     text-align: left;
-    padding-top: 56px;
-    border-top: 1px solid var(--border);
-    transition: border-color 0.35s var(--transition);
   }
 
   .big-quote {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
     color: var(--text);
-    margin-bottom: 28px;
-    letter-spacing: -0.3px;
-    max-width: 560px;
-    line-height: 1.35;
+    margin-bottom: 36px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    max-width: 720px;
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      gap: 16px;
+      padding: 28px 0;
+    }
   }
 </style>

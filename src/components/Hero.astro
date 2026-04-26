@@ -1,20 +1,21 @@
 ---
-// Hero with asymmetric layout, gradient title, code block teaser.
+// Hero — type-led, asymmetric.
 ---
 
 <header class="hero" id="hero">
   <div class="container">
     <div class="hero-eyebrow" data-reveal>
-      <span class="pulse"></span>
-      Vidyalankar Institute of Technology, Mumbai
+      <span class="hero-num">VOSS / 2026</span>
+      <span class="hero-divider"></span>
+      <span>Vidyalankar Institute of Technology, Mumbai</span>
     </div>
     <h1 class="hero-title" data-reveal>
       <span class="line">Open Source</span>
       <span class="line">Software Labs</span>
     </h1>
     <p class="hero-desc" data-reveal>
-      We identify the most broken, manual, and painful systems at Vidyalankar — and we fix them with software.
-      Every project is open source, publicly maintained, and built to be used by real students every day.
+      A student-run open-source lab at Vidyalankar Institute of Technology, Mumbai.
+      We build real digital infrastructure for the college — collaboratively, transparently, and in public.
     </p>
     <div class="hero-actions" data-reveal>
       <a href="#contribute" class="btn btn-primary">
@@ -56,40 +57,40 @@
     position: relative;
     z-index: 1;
     text-align: left;
-    padding: 180px 0 100px;
+    padding: 200px 0 120px;
   }
 
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.78rem;
-    color: var(--text-dim);
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    margin-bottom: 28px;
-    padding: 0;
-    background: none;
-    border: none;
+    margin-bottom: 40px;
   }
 
-  .pulse {
+  .hero-num {
+    color: var(--brand);
+  }
+
+  .hero-divider {
+    width: 24px;
+    height: 1px;
+    background: var(--border-hover);
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--success);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
   }
 
   .hero-title {
-    font-size: clamp(3.2rem, 8vw, 6.5rem);
-    font-weight: 900;
-    line-height: 0.98;
-    letter-spacing: -3.5px;
-    margin-bottom: 32px;
-    max-width: 900px;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+    margin-bottom: 48px;
+    max-width: 1100px;
   }
 
   .hero-title .line {
@@ -97,23 +98,29 @@
   }
 
   .hero-title .line:last-child {
-    color: var(--text-dim);
-    font-weight: 500;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .hero-title .line:last-child::after {
+    content: '.';
+    color: var(--brand);
   }
 
   .hero-desc {
-    margin: 0 0 36px 0;
-    max-width: 520px;
-    font-size: 1.1rem;
+    margin: 0 0 48px 0;
+    max-width: 560px;
+    font-size: 1.18rem;
     color: var(--text-dim);
-    line-height: 1.65;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
   }
 
   .hero-actions {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     justify-content: flex-start;
-    margin-bottom: 64px;
+    margin-bottom: 88px;
     flex-wrap: wrap;
   }
 
@@ -159,24 +166,18 @@
     color: var(--text);
   }
 
-  .token-comment { color: var(--text-muted); }
-  .token-keyword { color: #c084fc; }
-  .token-bool    { color: #f472b6; }
-  .token-string  { color: #4ade80; }
+  .token-comment { color: var(--token-comment); }
+  .token-keyword { color: var(--token-keyword); font-weight: 600; }
+  .token-bool    { color: var(--token-bool); }
+  .token-string  { color: var(--token-string); }
 
   @media (max-width: 768px) {
     .hero {
       padding: 140px 0 80px;
     }
-    .hero-title {
-      letter-spacing: -2px;
-    }
     .hero-actions {
       flex-direction: column;
       align-items: stretch;
-    }
-    .btn {
-      width: auto;
     }
   }
 </style>

@@ -1,9 +1,9 @@
 ---
 const links = [
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
   { href: '#contribute', label: 'Contribute' },
   { href: '#structure', label: 'Structure' },
+  { href: '#team', label: 'Team' },
   { href: '#values', label: 'Values' },
 ];
 ---
@@ -129,7 +129,7 @@ const links = [
 
   .logo-mark {
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--brand);
     line-height: 1;
   }
 
@@ -147,14 +147,18 @@ const links = [
   }
 
   .nav-link {
+    position: relative;
     display: block;
-    padding: 8px 14px;
+    padding: 8px 12px;
     color: var(--text-dim);
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 500;
+    letter-spacing: -0.01em;
     border-radius: var(--radius-sm);
-    transition: all 0.2s var(--transition);
+    transition:
+      color 0.2s var(--transition),
+      background-color 0.2s var(--transition);
   }
 
   .nav-link:hover {
@@ -162,14 +166,35 @@ const links = [
     background: var(--hover-bg);
   }
 
+  .nav-link.is-active {
+    color: var(--text);
+  }
+
+  .nav-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+
+  .nav-cta.is-active::after {
+    display: none;
+  }
+
   .nav-cta {
     background: var(--accent);
-    color: #fff !important;
+    color: var(--bg) !important;
     margin-left: 8px;
+    border: 1px solid var(--accent);
   }
 
   .nav-cta:hover {
     background: var(--accent-light);
+    border-color: var(--accent-light);
   }
 
   .menu-toggle {

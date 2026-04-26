@@ -1,52 +1,51 @@
 ---
 const roles = [
   {
+    num: '01',
     badge: 'Founder',
-    badgeClass: 'founder',
-    title: 'Direction & Representation',
-    body: "Sets the lab's vision and represents VOSS externally. One person, not a committee.",
+    body: 'Sets direction. Represents the lab externally. One person, not a committee.',
   },
   {
+    num: '02',
     badge: 'Core Maintainers',
-    badgeClass: 'core',
-    title: 'Merge Access & Operations',
-    body: 'Trusted contributors with admin rights. They keep the lights on and the merge queue moving.',
+    body: 'Trusted contributors with merge access. Run day-to-day operations.',
   },
   {
+    num: '03',
     badge: 'Maintainers',
-    badgeClass: 'maintainer',
-    title: 'Review & Mentorship',
-    body: 'Review PRs, enforce standards, and help newcomers ship their first contribution.',
+    body: 'Experienced contributors who review PRs and mentor newcomers.',
   },
   {
+    num: '04',
     badge: 'Contributors',
-    badgeClass: 'contributor',
-    title: 'Shippers of Code',
-    body: 'Anyone with at least one merged PR. This is the majority of VOSS.',
+    body: 'Anyone who has shipped at least one merged contribution.',
   },
   {
+    num: '05',
     badge: 'Community',
-    badgeClass: 'community',
-    title: 'All VIT Students',
-    body: 'Every student interested in open source is welcome to participate, learn, and grow.',
+    body: 'All Vidyalankar students interested in open source. The widest circle.',
   },
 ];
 ---
 
-<section class="section section-alt" id="team">
+<section class="section" id="team">
   <div class="container">
     <div class="section-header" data-reveal>
       <span class="section-eyebrow">04 — People</span>
-      <h2 class="section-title">Who We Are</h2>
-      <p class="section-desc">Flat structure. No elections. Your commits are your credentials.</p>
+      <h2 class="section-title">A flat, contribution-based structure.</h2>
+      <p class="section-desc">
+        No elected positions. No president, no secretary, no treasurer. Your commits are your credentials.
+      </p>
     </div>
-    <div class="roles">
+    <div class="roles" data-reveal>
       {
         roles.map((role) => (
-          <div class="role" data-reveal>
-            <span class:list={['role-badge', role.badgeClass]}>{role.badge}</span>
-            <h4>{role.title}</h4>
-            <p>{role.body}</p>
+          <div class="role">
+            <span class="role-num">{role.num}</span>
+            <div class="role-content">
+              <h4>{role.badge}</h4>
+              <p>{role.body}</p>
+            </div>
           </div>
         ))
       }
@@ -56,61 +55,51 @@ const roles = [
 
 <style>
   .roles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
   }
 
   .role {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    transition:
-      background-color 0.35s var(--transition),
-      border-color 0.35s var(--transition);
+    display: flex;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.35s var(--transition);
   }
 
-  .role:hover {
-    border-color: var(--border-hover);
-  }
-
-  .role-badge {
-    display: inline-block;
+  .role-num {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    padding: 0 0 4px 0;
-    margin-bottom: 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
+    min-width: 56px;
+    line-height: 1.6;
+    flex-shrink: 0;
+    padding-top: 4px;
   }
 
-  .role-badge.founder,
-  .role-badge.core,
-  .role-badge.maintainer,
-  .role-badge.contributor,
-  .role-badge.community {
+  .role-content h4 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .role-content p {
     color: var(--text-dim);
-  }
-
-  .role h4 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .role p {
-    color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.55;
+    max-width: 640px;
   }
 
   @media (max-width: 768px) {
-    .roles {
-      grid-template-columns: 1fr;
+    .role {
+      gap: 16px;
     }
   }
 </style>
