@@ -197,6 +197,21 @@ const meta = [
     font-size: 0.82rem;
     line-height: 1.8;
     overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-hover) transparent;
+  }
+
+  .code-body::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .code-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .code-body::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 3px;
   }
 
   .code-body :global(code) {
@@ -262,12 +277,19 @@ const meta = [
   @media (max-width: 900px) {
     .hero {
       min-height: auto;
-      padding: 120px 0 64px;
+      padding: 96px 0 64px;
     }
     .hero-grid {
       grid-template-columns: 1fr;
-      gap: 56px;
+      gap: 48px;
       align-items: start;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 7.5vw, 3.4rem);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      max-width: 100%;
     }
     .hero-actions {
       flex-direction: column;
@@ -277,13 +299,17 @@ const meta = [
 
   @media (max-width: 480px) {
     .hero-title {
-      font-size: clamp(2rem, 11vw, 3.6rem);
-      letter-spacing: -0.04em;
+      font-size: clamp(1.95rem, 9.5vw, 2.6rem);
+      letter-spacing: -0.035em;
       overflow-wrap: anywhere;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
     }
     .hero-eyebrow {
       flex-wrap: wrap;
       gap: 8px;
+      font-size: 0.7rem;
     }
   }
 </style>

@@ -1,8 +1,8 @@
 ---
 const links = [
   { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
   { href: '#contribute', label: 'Contribute' },
-  { href: '#structure', label: 'Structure' },
   { href: '#team', label: 'Team' },
   { href: '#values', label: 'Values' },
 ];
@@ -11,9 +11,10 @@ const links = [
 <nav class="nav" id="nav">
   <div class="container nav-container">
     <div class="nav-inner">
-      <a href="#" class="logo">
-        <img src="/voss-logo.png" alt="VOSS" class="logo-mark" width="22" height="22" />
+      <a href="#" class="logo" aria-label="VOSS home">
+        <img src="/brand/logo/voss-mark.svg" alt="" class="logo-mark" width="24" height="24" />
         <span class="logo-text">VOSS</span>
+        <span class="logo-accent" aria-hidden="true"></span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -115,18 +116,29 @@ const links = [
   }
 
   .logo-mark {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     display: block;
     object-fit: contain;
+    border-radius: 5px;
   }
 
   .logo-text {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .logo-accent {
+    width: 8px;
+    height: 8px;
+    background: var(--brand);
+    display: block;
+    align-self: flex-end;
+    margin-bottom: 3px;
+    margin-left: -2px;
   }
 
   .nav-links {

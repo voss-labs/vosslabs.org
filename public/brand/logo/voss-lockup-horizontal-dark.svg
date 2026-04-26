@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" role="img"
+     aria-label="VOSS — Vidyalankar Open Source Software Labs">
+  <text x="0" y="48"
+        font-family="Geist, Inter, system-ui, sans-serif"
+        font-weight="900"
+        font-size="52"
+        letter-spacing="-2.2"
+        fill="#FAFAFA">VOSS</text>
+  <rect x="142" y="36" width="14" height="14" fill="#FB7A3C"/>
+  <g font-family="Geist, Inter, system-ui, sans-serif" font-weight="600" font-size="10" letter-spacing="1.4">
+    <text x="180" y="22" fill="#FAFAFA">VIDYALANKAR</text>
+    <text x="180" y="38" fill="#FB7A3C">OPEN SOURCE</text>
+    <text x="180" y="54" fill="#FAFAFA">SOFTWARE LABS</text>
+  </g>
+</svg>

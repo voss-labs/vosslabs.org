@@ -8,7 +8,6 @@ const navLinks = [
 
 const connectLinks = [
   { href: 'https://github.com/voss-labs', label: 'GitHub', external: true },
-  { href: '#', label: 'Discord', external: false },
   { href: 'mailto:hello@vosslabs.org', label: 'Email', external: false },
 ];
 ---
@@ -17,9 +16,16 @@ const connectLinks = [
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="/voss-logo.png" alt="VOSS" class="logo-mark" width="36" height="36" />
-        <span class="footer-name">VOSS</span>
-        <p class="footer-tag">Vidyalankar Open Source Software Labs</p>
+        <img src="/brand/logo/voss-mark.svg" alt="" class="logo-mark" width="40" height="40" />
+        <div class="footer-wordmark">
+          <span class="footer-name">VOSS</span>
+          <span class="footer-accent" aria-hidden="true"></span>
+        </div>
+        <p class="footer-tag">
+          <span>Vidyalankar</span>
+          <span class="footer-tag-orange">Open Source</span>
+          <span>Software Labs</span>
+        </p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -70,22 +76,51 @@ const connectLinks = [
   }
 
   .logo-mark {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: block;
     object-fit: contain;
+    border-radius: 9px;
+    margin-bottom: 12px;
+  }
+
+  .footer-wordmark {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin-bottom: 8px;
   }
 
   .footer-name {
-    font-size: 1.3rem;
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
     font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .footer-accent {
+    width: 12px;
+    height: 12px;
+    background: var(--brand);
     display: block;
-    margin: 8px 0 4px;
+    margin-bottom: 3px;
   }
 
   .footer-tag {
+    font-family: var(--font-mono);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .footer-tag-orange {
+    color: var(--brand);
   }
 
   .footer-links {

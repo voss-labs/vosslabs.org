@@ -26,7 +26,7 @@ const steps = [
 <section class="section" id="contribute">
   <div class="container">
     <div class="section-header" data-reveal>
-      <span class="section-eyebrow">02 — Join</span>
+      <span class="section-eyebrow">03 — Join</span>
       <h2 class="section-title">No applications. No interviews.</h2>
       <p class="section-desc">No forms, no committees, no gatekeepers. You contribute, you're in.</p>
     </div>
@@ -166,6 +166,28 @@ const steps = [
     line-height: 1.65;
     overflow-x: auto;
     color: var(--text);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-hover) transparent;
+  }
+
+  .terminal-body::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .terminal-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .terminal-body::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .terminal-body {
+      font-size: 0.72rem;
+      padding: 14px 14px;
+    }
   }
 
   .terminal-body :global(code) {

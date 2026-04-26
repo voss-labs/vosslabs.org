@@ -13,8 +13,8 @@
   --accent-light: #262626;
   --accent-glow: rgba(0, 0, 0, 0.06);
   --success: #0a0a0a;
-  --brand: #d94a1f;
-  --brand-light: #ef6a3c;
+  --brand: #c4421d;
+  --brand-light: #e0541e;
   --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
   --radius-sm: 4px;
@@ -168,15 +168,15 @@ a {
 }
 
 .section-title {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-size: clamp(1.9rem, 5.5vw, 4rem);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 20px;
 }
 
 .section-desc {
-  font-size: 1.125rem;
+  font-size: clamp(0.98rem, 1.6vw, 1.125rem);
   color: var(--text-dim);
   line-height: 1.5;
   max-width: 520px;
@@ -230,7 +230,12 @@ a {
 
 .btn-ghost:hover {
   background: var(--hover-bg);
-  border-color: var(--border-hover);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-large {
