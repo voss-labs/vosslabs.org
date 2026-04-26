@@ -12,71 +12,72 @@ const links = [
   <div class="container nav-container">
     <div class="nav-inner">
       <a href="#" class="logo">
-      <img src="/voss-logo.png" alt="VOSS" class="logo-mark" width="28" height="28" />
-      <span class="logo-text">VOSS</span>
-    </a>
+        <img src="/voss-logo.png" alt="VOSS" class="logo-mark" width="22" height="22" />
+        <span class="logo-text">VOSS</span>
+      </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <ul class="nav-links" id="navLinks">
-      {
-        links.map((link) => (
-          <li>
-            <a href={link.href} class="nav-link">
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-      <li>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-          <svg
-            id="moonIcon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg
-          >
-          <svg
-            id="sunIcon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="display:none"
-            ><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line
-              x1="12"
-              y1="21"
-              x2="12"
-              y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line
-              x1="18.36"
-              y1="18.36"
-              x2="19.78"
-              y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line
-              x1="21"
-              y1="12"
-              x2="23"
-              y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line
-              x1="18.36"
-              y1="5.64"
-              x2="19.78"
-              y2="4.22"></line></svg
-          >
-        </button>
-      </li>
-      <li>
-        <a href="https://github.com/voss-labs" class="nav-link nav-cta" target="_blank" rel="noopener noreferrer">
-          GitHub →
-        </a>
-      </li>
-    </ul>
+      <ul class="nav-links" id="navLinks">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class="nav-link">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="nav-divider" aria-hidden="true"></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <svg
+              id="moonIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg
+            >
+            <svg
+              id="sunIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display:none"
+              ><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line
+                x1="12"
+                y1="21"
+                x2="12"
+                y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line
+                x1="18.36"
+                y1="18.36"
+                x2="19.78"
+                y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line
+                x1="21"
+                y1="12"
+                x2="23"
+                y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line
+                x1="18.36"
+                y1="5.64"
+                x2="19.78"
+                y2="4.22"></line></svg
+            >
+          </button>
+        </li>
+        <li>
+          <a href="https://github.com/voss-labs" class="nav-link nav-cta" target="_blank" rel="noopener noreferrer">
+            GitHub <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -88,41 +89,24 @@ const links = [
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 16px 0;
-    transition: padding 0.45s var(--transition);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition:
+      background-color 0.3s var(--transition),
+      border-color 0.3s var(--transition);
   }
 
-  .nav-container {
-    /* inherits .container max-width + padding so the pill aligns with hero */
+  .nav.nav-scrolled {
+    background: var(--bg);
+    border-bottom-color: var(--border);
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 64px;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 24px;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px) saturate(1.1);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition:
-      max-width 0.5s var(--transition),
-      background-color 0.4s var(--transition),
-      border-color 0.4s var(--transition),
-      box-shadow 0.4s var(--transition);
-  }
-
-  .nav.nav-scrolled {
-    padding: 12px 0;
-  }
-
-  .nav.nav-scrolled .nav-inner {
-    max-width: 880px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
   }
 
   .logo {
@@ -134,74 +118,76 @@ const links = [
   }
 
   .logo-mark {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     display: block;
     object-fit: contain;
   }
 
   .logo-text {
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: -0.5px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 28px;
     list-style: none;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+    margin: 0 4px;
   }
 
   .nav-link {
     position: relative;
-    display: block;
-    padding: 8px 12px;
+    display: inline-block;
+    padding: 6px 0;
     color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.88rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: -0.01em;
-    border-radius: var(--radius-sm);
-    transition:
-      color 0.2s var(--transition),
-      background-color 0.2s var(--transition);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s var(--transition);
   }
 
   .nav-link:hover {
     color: var(--text);
-    background: var(--hover-bg);
   }
 
   .nav-link.is-active {
-    color: var(--text);
+    color: var(--brand);
   }
 
   .nav-link.is-active::after {
     content: '';
     position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: 2px;
     background: var(--brand);
-    border-radius: 2px;
+  }
+
+  .nav-cta {
+    color: var(--text);
   }
 
   .nav-cta.is-active::after {
     display: none;
   }
 
-  .nav-cta {
-    background: var(--accent);
-    color: var(--bg) !important;
-    margin-left: 8px;
-    border: 1px solid var(--accent);
-  }
-
   .nav-cta:hover {
-    background: var(--accent-light);
-    border-color: var(--accent-light);
+    color: var(--brand);
   }
 
   .menu-toggle {
@@ -212,72 +198,80 @@ const links = [
     border: none;
     cursor: pointer;
     padding: 4px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .menu-toggle:focus {
+    outline: none;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
   }
 
   .menu-toggle span {
     display: block;
     width: 22px;
-    height: 2px;
+    height: 1.5px;
     background: var(--text);
-    border-radius: 2px;
     transition: all 0.3s;
   }
 
   .menu-toggle.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(6.5px) rotate(45deg);
   }
   .menu-toggle.open span:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
   .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-6.5px) rotate(-45deg);
   }
 
   .theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
+    width: 24px;
+    height: 24px;
     background: transparent;
-    border: 1px solid var(--border);
+    border: none;
     color: var(--text-dim);
     cursor: pointer;
-    transition: all 0.2s var(--transition);
+    transition: color 0.2s var(--transition);
     padding: 0;
   }
 
   .theme-toggle:hover {
-    background: var(--hover-bg);
     color: var(--text);
-    border-color: var(--border-hover);
   }
 
   .theme-toggle svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
   .nav-link:focus-visible,
   .theme-toggle:focus-visible,
   .menu-toggle:focus-visible {
-    outline-offset: 3px;
+    outline-offset: 4px;
   }
 
   @media (max-width: 768px) {
     .nav-links {
       position: fixed;
       inset: 0;
+      z-index: 200;
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
       background: var(--bg);
-      border: none;
-      border-radius: 0;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       padding: 96px 24px 40px;
-      gap: 4px;
+      gap: 0;
+      overflow-y: auto;
       opacity: 0;
       pointer-events: none;
       transform: translateY(-12px);
@@ -293,45 +287,44 @@ const links = [
     }
 
     .nav-link {
-      padding: 18px 4px;
+      padding: 22px 0;
       width: 100%;
-      font-size: 1.4rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
       border-bottom: 1px solid var(--border);
     }
 
     .nav-link.is-active::after {
-      left: 4px;
+      left: 0;
       right: auto;
-      width: 24px;
+      width: 32px;
       bottom: -1px;
     }
 
+    .nav-divider {
+      display: none;
+    }
+
     .nav-cta {
-      margin-left: 0;
       margin-top: 24px;
-      text-align: center;
       border-bottom: none;
-      font-size: 1rem;
     }
 
     .theme-toggle {
       width: 100%;
-      height: 56px;
+      height: 64px;
       justify-content: flex-start;
-      padding: 0 4px;
-      border: none;
       border-bottom: 1px solid var(--border);
-      border-radius: 0;
-      font-family: var(--font-sans);
-      font-size: 1.4rem;
     }
 
     .menu-toggle {
       display: flex;
       position: relative;
-      z-index: 110;
+      z-index: 210;
     }
+  }
+
+  :global(body.menu-open) {
+    overflow: hidden;
   }
 </style>

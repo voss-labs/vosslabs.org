@@ -43,13 +43,16 @@ function initMobileMenu(): void {
   toggle.addEventListener('click', () => {
     const isOpen = links.classList.toggle('open');
     toggle.classList.toggle('open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
+    (toggle as HTMLElement).blur();
   });
 
   links.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       links.classList.remove('open');
       toggle.classList.remove('open');
+      document.body.classList.remove('menu-open');
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
