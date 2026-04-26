@@ -90,15 +90,12 @@ const links = [
     right: 0;
     z-index: 100;
     background: transparent;
-    border-bottom: 1px solid transparent;
-    transition:
-      background-color 0.3s var(--transition),
-      border-color 0.3s var(--transition);
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.3s var(--transition);
   }
 
   .nav.nav-scrolled {
     background: var(--bg);
-    border-bottom-color: var(--border);
   }
 
   .nav-inner {
