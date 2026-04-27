@@ -13,7 +13,7 @@
         font-family="Geist, Inter, system-ui, sans-serif"
         font-weight="900" font-size="200" letter-spacing="-8"
         fill="#FAFAFA">VOSS</text>
-  <rect x="710" y="358" width="48" height="48" fill="#FB7A3C"/>
+  <rect x="488" y="358" width="48" height="48" fill="#FB7A3C"/>
 
   <text x="80" y="490"
         font-family="Geist, Inter, system-ui, sans-serif"
