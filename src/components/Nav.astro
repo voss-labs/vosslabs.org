@@ -12,7 +12,6 @@ const links = [
   <div class="container nav-container">
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="VOSS home">
-        <img src="/brand/logo/voss-mark.svg" alt="" class="logo-mark" width="24" height="24" loading="eager" decoding="async" />
         <span class="logo-text">VOSS</span>
         <span class="logo-accent" aria-hidden="true"></span>
       </a>
@@ -109,36 +108,26 @@ const links = [
 
   .logo {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 4px;
     text-decoration: none;
     color: var(--text);
-  }
-
-  .logo-mark {
-    width: 24px;
-    height: 24px;
-    display: block;
-    object-fit: contain;
-    border-radius: 5px;
   }
 
   .logo-text {
     font-family: var(--font-sans);
     font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: -0.04em;
+    font-size: 1.25rem;
+    letter-spacing: -0.045em;
     line-height: 1;
   }
 
   .logo-accent {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: var(--brand-pure);
     display: block;
-    align-self: flex-end;
     margin-bottom: 3px;
-    margin-left: -2px;
   }
 
   .nav-links {
@@ -162,9 +151,9 @@ const links = [
     color: var(--text-dim);
     text-decoration: none;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     transition: color 0.2s var(--transition);
   }
