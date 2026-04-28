@@ -1,4 +1,6 @@
 ---
+import SnakeGame from './SnakeGame.astro';
+
 const meta = [
   { label: 'Founded', value: 'April 2026' },
   { label: 'Location', value: 'Mumbai, IN' },
@@ -48,17 +50,7 @@ const meta = [
       </div>
 
       <div class="hero-right" data-reveal>
-        <div class="hero-code">
-          <div class="code-header">
-            <span class="code-title">// CONTRIBUTING.md</span>
-          </div>
-          <pre class="code-body"><code><span class="token-comment">// How to join VOSS</span>
-<span class="token-keyword">if</span> (<span class="token-var">you</span>.<span class="token-fn">shipCode</span>()) {'{'}
-  <span class="token-var">you</span>.<span class="token-prop">areIn</span> = <span class="token-bool">true</span>;
-  <span class="token-var">you</span>.<span class="token-prop">role</span> = <span class="token-string">"contributor"</span>;
-{'}'}
-<span class="token-comment">// No forms. No interviews. Just commits.</span></code></pre>
-        </div>
+        <SnakeGame />
 
         <dl class="hero-meta">
           {
@@ -166,69 +158,6 @@ const meta = [
     flex-direction: column;
     gap: 32px;
   }
-
-  .hero-code {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    text-align: left;
-    transition:
-      background-color 0.35s var(--transition),
-      border-color 0.35s var(--transition);
-  }
-
-  .code-header {
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.35s var(--transition);
-  }
-
-  .code-title {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    letter-spacing: 0.05em;
-  }
-
-  .code-body {
-    padding: 18px 20px;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    line-height: 1.8;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-hover) transparent;
-  }
-
-  .code-body::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .code-body::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .code-body::-webkit-scrollbar-thumb {
-    background: var(--border-hover);
-    border-radius: 3px;
-  }
-
-  .code-body :global(code) {
-    background: none;
-    padding: 0;
-    font-family: inherit;
-    border: none;
-    color: var(--text);
-  }
-
-  .token-comment  { color: var(--token-comment); font-style: italic; }
-  .token-keyword  { color: var(--token-keyword); }
-  .token-bool     { color: var(--token-bool); }
-  .token-string   { color: var(--token-string); }
-  .token-fn       { color: var(--token-function); }
-  .token-var      { color: var(--token-variable); }
-  .token-prop     { color: var(--token-property); }
 
   .hero-meta {
     display: grid;
