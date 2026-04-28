@@ -1,28 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0A0A0A"/>
-
-  <text x="80" y="180"
-        font-family="'Geist Mono', 'JetBrains Mono', ui-monospace, monospace"
-        font-size="18" letter-spacing="3" fill="#737373">
-    VOSS / 2026 — VIDYALANKAR INSTITUTE OF TECHNOLOGY, MUMBAI
-  </text>
-
-  <text x="80" y="400"
+  <text x="303" y="380"
         font-family="Geist, Inter, system-ui, sans-serif"
-        font-weight="900" font-size="200" letter-spacing="-8"
+        font-weight="900"
+        font-size="200"
+        letter-spacing="-8"
+        textLength="530"
+        lengthAdjust="spacingAndGlyphs"
         fill="#FAFAFA">VOSS</text>
-  <rect x="488" y="358" width="48" height="48" fill="#FB7A3C"/>
-
-  <text x="80" y="490"
-        font-family="Geist, Inter, system-ui, sans-serif"
-        font-weight="500" font-size="36" fill="#FAFAFA">
-    Open Source Software Labs.
-  </text>
-
-  <line x1="80" y1="540" x2="1120" y2="540" stroke="#737373" stroke-opacity="0.3"/>
-  <text x="80" y="575"
-        font-family="'Geist Mono', 'JetBrains Mono', ui-monospace, monospace"
-        font-size="16" letter-spacing="2" fill="#737373">
-    BUILT IN PUBLIC · MIT LICENSE · github.com/voss-labs
-  </text>
+  <rect x="849" y="338" width="48" height="48" fill="#FB7A3C"/>
 </svg>

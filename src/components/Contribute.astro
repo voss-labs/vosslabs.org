@@ -126,6 +126,11 @@ const steps = [
     letter-spacing: -0.02em;
     margin-bottom: 4px;
     color: var(--text);
+    transition: color 0.2s var(--transition);
+  }
+
+  .step:hover .step-content h3 {
+    color: var(--brand);
   }
 
   .step-content p {

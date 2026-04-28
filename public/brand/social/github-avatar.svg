@@ -1,18 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" role="img"
-     aria-label="VOSS — Open Source Software Labs">
+     aria-label="VOSS">
   <rect width="460" height="460" rx="80" fill="#0A0A0A"/>
-
-  <text x="60" y="260"
+  <text x="51" y="270"
         font-family="Geist, Inter, system-ui, -apple-system, sans-serif"
         font-weight="900"
-        font-size="140"
-        letter-spacing="-6"
+        font-size="120"
+        letter-spacing="-5"
+        textLength="320"
+        lengthAdjust="spacingAndGlyphs"
         fill="#FAFAFA">VOSS</text>
-  <rect x="328" y="228" width="32" height="32" fill="#FB7A3C"/>
-
-  <text x="60" y="305"
-        font-family="'Geist Mono', 'JetBrains Mono', ui-monospace, monospace"
-        font-size="16"
-        letter-spacing="3"
-        fill="#737373">OPEN SOURCE SOFTWARE LABS</text>
+  <rect x="381" y="242" width="28" height="28" fill="#FB7A3C"/>
 </svg>

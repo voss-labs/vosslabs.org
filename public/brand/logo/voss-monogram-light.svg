@@ -4,6 +4,8 @@
         font-weight="900"
         font-size="76"
         letter-spacing="-3"
+        textLength="46"
+        lengthAdjust="spacingAndGlyphs"
         fill="#0A0A0A">V</text>
-  <rect x="56" y="50" width="16" height="16" fill="#FB7A3C"/>
+  <rect x="58" y="50" width="16" height="16" fill="#FB7A3C"/>
 </svg>
