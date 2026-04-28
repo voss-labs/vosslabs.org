@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import BackgroundFx from '../components/BackgroundFx.astro';
+import Cursor from '../components/Cursor.astro';
 
 interface Props {
   title?: string;
@@ -59,6 +60,7 @@ const {
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
     <BackgroundFx />
+    <Cursor />
     <Nav />
     <main id="main">
       <slot />

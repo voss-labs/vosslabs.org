@@ -1,0 +1,103 @@
+---
+---
+
+<div id="cursor" class="cursor" aria-hidden="true"></div>
+
+<style>
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--brand-pure);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    will-change: transform;
+    transform: translate3d(-100px, -100px, 0);
+    transition:
+      width 0.18s var(--transition),
+      height 0.18s var(--transition),
+      opacity 0.2s var(--transition);
+  }
+
+  .cursor.is-visible {
+    opacity: 1;
+  }
+
+  .cursor.is-hover {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :global(*),
+    :global(*::before),
+    :global(*::after) {
+      cursor: none !important;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .cursor {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function initCursor(): void {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const cursor = document.getElementById('cursor');
+    if (!cursor) return;
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let cursorX = -100;
+    let cursorY = -100;
+    let visible = false;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!visible) {
+        cursor.classList.add('is-visible');
+        visible = true;
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-visible');
+      visible = false;
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.classList.add('is-visible');
+      visible = true;
+    });
+
+    function animate(): void {
+      cursorX += (mouseX - cursorX) * 0.22;
+      cursorY += (mouseY - cursorY) * 0.22;
+      cursor!.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const interactiveSelector =
+      'a, button, [role="button"], input, textarea, select, label[for], summary, .role-row, .row, .value, .standard, .step, [data-cursor-hover]';
+
+    document.querySelectorAll<HTMLElement>(interactiveSelector).forEach((el) => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCursor);
+  } else {
+    initCursor();
+  }
+</script>
