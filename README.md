@@ -12,6 +12,7 @@ Brief: not a club, not a committee. A lab where students build things that actua
 - [Geist + Geist Mono](https://vercel.com/font) via Google Fonts
 - Plain CSS — design tokens in `src/styles/global.css`, scoped `<style>` blocks per component
 - No build-time framework beyond Astro
+- Posthog
 
 ## Quick start
 
