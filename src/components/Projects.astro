@@ -262,3 +262,27 @@ try {
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('#projects .row').forEach(function (row) {
+      row.addEventListener('click', function () {
+        var name = row.querySelector('h3')?.textContent?.trim() || '';
+        var lang = row.querySelector('.row-lang')?.textContent?.trim() || '';
+        var href = row.getAttribute('href') || '';
+        window.posthog?.capture('project_repo_clicked', {
+          repo_name: name,
+          repo_language: lang,
+          repo_url: href,
+        });
+      });
+    });
+
+    var viewAllLink = document.querySelector('#projects .row-cta .link');
+    if (viewAllLink) {
+      viewAllLink.addEventListener('click', function () {
+        window.posthog?.capture('view_all_repos_clicked', { location: 'projects' });
+      });
+    }
+  });
+</script>

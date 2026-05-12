@@ -32,6 +32,7 @@ function initTheme(): void {
     const next: Theme = isDark ? 'light' : 'dark';
     applyTheme(next);
     localStorage.setItem(THEME_STORAGE_KEY, next);
+    (window as any).posthog?.capture('theme_toggled', { theme: next });
   });
 }
 

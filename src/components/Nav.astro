@@ -326,3 +326,14 @@ const links = [
     overflow: hidden;
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var githubLink = document.querySelector('.nav-cta[href*="github.com"]');
+    if (githubLink) {
+      githubLink.addEventListener('click', function () {
+        window.posthog?.capture('nav_github_clicked', { location: 'nav' });
+      });
+    }
+  });
+</script>

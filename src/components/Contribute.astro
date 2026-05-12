@@ -241,3 +241,14 @@ const steps = [
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var exploreBtn = document.querySelector('#contribute .contribute-cta .btn-primary');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', function () {
+        window.posthog?.capture('explore_repos_cta_clicked', { location: 'contribute' });
+      });
+    }
+  });
+</script>

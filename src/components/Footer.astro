@@ -167,3 +167,15 @@ const connectLinks = [
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.footer .footer-col a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var label = link.textContent?.trim() || '';
+        var href = link.getAttribute('href') || '';
+        window.posthog?.capture('footer_link_clicked', { link_label: label, link_href: href });
+      });
+    });
+  });
+</script>

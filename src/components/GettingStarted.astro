@@ -143,3 +143,14 @@ const beginnerSteps = [
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var issuesLink = document.querySelector('#start .link-arrow');
+    if (issuesLink) {
+      issuesLink.addEventListener('click', function () {
+        window.posthog?.capture('view_all_issues_clicked', { location: 'getting_started', path: 'path_b' });
+      });
+    }
+  });
+</script>

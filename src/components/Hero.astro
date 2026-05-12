@@ -242,3 +242,21 @@ const meta = [
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var contributeBtn = document.querySelector('.hero-actions .btn-primary');
+    if (contributeBtn) {
+      contributeBtn.addEventListener('click', function () {
+        window.posthog?.capture('contribute_cta_clicked', { location: 'hero' });
+      });
+    }
+
+    var githubBtn = document.querySelector('.hero-actions .btn-ghost');
+    if (githubBtn) {
+      githubBtn.addEventListener('click', function () {
+        window.posthog?.capture('github_repos_clicked', { location: 'hero' });
+      });
+    }
+  });
+</script>
