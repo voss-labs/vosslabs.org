@@ -73,6 +73,24 @@ const links = [
           </button>
         </li>
         <li>
+          {/*
+            A link, deliberately — not an embedded account page.
+
+            The session cookie is scoped to accounts.vosslabs.org. Serving the
+            account UI from this origin would expose every student's session
+            token to every script on the marketing site, which changes often,
+            takes contributions from newcomers, and will eventually want an
+            analytics tag or an embed. One XSS here would become a full
+            compromise of the identity provider.
+
+            Google does exactly this: gmail.com links out to
+            myaccount.google.com rather than hosting it.
+          */}
+          <a href="https://accounts.vosslabs.org/account" class="nav-link">
+            Account
+          </a>
+        </li>
+        <li>
           <a href="https://github.com/voss-labs" class="nav-link nav-cta" target="_blank" rel="noopener noreferrer">
             GitHub <span aria-hidden="true">→</span>
           </a>
